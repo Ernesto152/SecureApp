@@ -16,7 +16,6 @@ public class SplashActivity extends Activity {
     final static String TAG = "SecureApp";
 
     TextView logoTextView;
-    //TextView sloganTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
