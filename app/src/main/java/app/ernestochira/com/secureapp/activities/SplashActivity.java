@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import app.ernestochira.com.secureapp.MapsActivity;
 import app.ernestochira.com.secureapp.R;
 
 public class SplashActivity extends Activity {
@@ -36,7 +37,7 @@ public class SplashActivity extends Activity {
                     e.printStackTrace();
                     Log.d(TAG, "Error on Splash Screen");
                 } finally {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    startActivity(new Intent(SplashActivity.this, MapsActivity.class));
                     finish();
                 }
             }
