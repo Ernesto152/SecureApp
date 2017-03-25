@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_arrow_upward_white_24dp"
+        android:src="@drawable/ic_arrow_upward_black_24dp"
         app:backgroundTint="#0076dd"
         app:fabSize="normal"
         app:layout_anchor="@+id/map"
