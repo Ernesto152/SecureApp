@@ -4,6 +4,15 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_incidencia">Incidencias</string>
     <string name="title_activity_web_service">WebService</string>
+    <string name="title_activity_register_incident">RegisterIncident</string>
+
+    <string name="referencia_text">Distrito</string>
+    <string name="distrito_text">Referencia</string>
+    <string name="fecha_text">Fecha</string>
+    <string name="hora_text">Hora</string>
+    <string name="descripcion_text">Descripcion</string>
+
+
 
 
 </resources>
