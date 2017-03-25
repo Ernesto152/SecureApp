@@ -1,5 +1,6 @@
 package app.ernestochira.com.secureapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +19,18 @@ public class IncidenciaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //double result = CalculationByDistance(rns,);
+
+
+                startActivity(new Intent(view.getContext(), NoticesActivity.class));
+            }
+        });
     }
+
 
 }
