@@ -18,28 +18,18 @@ public class RegisterIncident extends AppCompatActivity {
 EditText Distritotext, Referenciatext, Fechatext, Horatext, Descripciontext;
 
 
-    @Override
+  @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+       super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_incident);
+
         Distritotext=(EditText) findViewById(R.id.distritotext);
         Referenciatext=(EditText) findViewById(R.id.referenciatext);
         Fechatext=(EditText)findViewById(R.id.fechatext);
         Horatext=(EditText)findViewById(R.id.horatext);
         Descripciontext=(EditText)findViewById(R.id.descripciontext);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        }
-        );
     }
 public void GuardarDatos(View view){
 
@@ -65,8 +55,6 @@ public void GuardarDatos(View view){
         }
 
     }
-
-
 
 }
 

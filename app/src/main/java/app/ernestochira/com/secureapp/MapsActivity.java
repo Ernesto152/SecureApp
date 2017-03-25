@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import app.ernestochira.com.secureapp.activities.IncidenciaActivity;
+import app.ernestochira.com.secureapp.activities.RegisterIncident;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -40,6 +41,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);mapFragment.getMapAsync(this);
+
+// Boton de lista de incidencias
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +52,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 startActivity(new Intent(view.getContext(), IncidenciaActivity.class));
             }
-        });}
+        }
+
+
+        );
+
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+                                   @Override
+                                   public void onClick(View view) {
+                                       //double result = CalculationByDistance(rns,);
+
+
+                                       startActivity(new Intent(view.getContext(), RegisterIncident.class));
+                                   }
+                               }
+
+
+        );
+
+
+
+    }
+
+
+
+
+
+
 
 
 

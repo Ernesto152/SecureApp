@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,41 +12,53 @@
         android:id="@+id/distritotext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/distrito_text"/>
+        android:hint="@string/distrito_text"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
 
         android:id="@+id/referenciatext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/referencia_text"/>
+        android:hint="@string/referencia_text"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
 
         android:id="@+id/fechatext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/fecha_text"/>
+        android:hint="@string/fecha_text"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
 
         android:id="@+id/horatext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/hora_text"/>
+        android:hint="@string/hora_text"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
 
         android:id="@+id/descripciontext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/descripcion_text"/>
+        android:hint="@string/descripcion_text"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
 
 
     <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -58,12 +71,17 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="match_parent"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:onClick="GuardarDatos"
-        android:text="GUARDAR" />
+        android:text="GUARDAR"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
 
-    <include layout="@layout/content_register_incident" />
-</LinearLayout>
-
+    <include layout="@layout/content_register_incident"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+</android.support.v7.widget.LinearLayoutCompat>
 

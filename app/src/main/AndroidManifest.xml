@@ -56,7 +56,7 @@
         <activity
             android:name=".activities.RegisterIncident"
             android:label="@string/title_activity_register_incident"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
