@@ -3,6 +3,7 @@
     <string name="title_activity_main">Map</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_incidencia">Incidencias</string>
+    <string name="title_activity_web_service">WebService</string>
 
 
 </resources>
