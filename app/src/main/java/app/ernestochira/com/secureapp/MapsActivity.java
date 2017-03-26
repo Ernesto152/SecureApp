@@ -23,8 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import app.ernestochira.com.secureapp.activities.IncidenciaActivity;
-import app.ernestochira.com.secureapp.activities.RegisterIncident;
+import app.ernestochira.com.secureapp.activities.IncidenceActivity;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -50,7 +49,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 //double result = CalculationByDistance(rns,);
 
 
-                startActivity(new Intent(view.getContext(), IncidenciaActivity.class));
+                startActivity(new Intent(view.getContext(), IncidenceActivity.class));
             }
         }
 
@@ -64,7 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                        //double result = CalculationByDistance(rns,);
 
 
-                                       startActivity(new Intent(view.getContext(), RegisterIncident.class));
+                                       //startActivity(new Intent(view.getContext(), RegisterIncident.class));
                                    }
                                }
 

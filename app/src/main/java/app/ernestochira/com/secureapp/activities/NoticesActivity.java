@@ -142,11 +142,9 @@ public class NoticesActivity extends AppCompatActivity {
             //return PlaceholderFragment.newInstance(position + 1);
             switch (position) {
                 case 0:
-                    RecentNotices recentNotices = new RecentNotices();
-                    return recentNotices;
+                    return new RecentNotices();
                 case 1:
-                    ImportantNotices importantNotices = new ImportantNotices();
-                    return importantNotices;
+                    return new ImportantNotices();
             }
             return null;
         }
@@ -163,7 +161,7 @@ public class NoticesActivity extends AppCompatActivity {
                 case 0:
                     return "RECIENTES";
                 case 1:
-                    return "IMPORTANT";
+                    return "IMPORTANTES";
             }
             return null;
         }
