@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -17,6 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+repositories {
+    mavenCentral()
 }
 
 dependencies {
@@ -32,5 +36,11 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.github.snowdream.android:smartimageview:0.0.2'
     compile 'com.android.support:support-v4:25.2.0'
+    compile 'com.android.support:support-vector-drawable:25.2.0'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.github.fafaldo:fab-toolbar:1.2.0'
+    compile 'com.github.clans:fab:1.6.2'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
     testCompile 'junit:junit:4.12'
 }

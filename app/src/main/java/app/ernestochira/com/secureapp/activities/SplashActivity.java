@@ -2,17 +2,23 @@ package app.ernestochira.com.secureapp.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.TextView;
 
-import app.ernestochira.com.secureapp.MapsActivity;
+import java.security.MessageDigest;
+
+import app.ernestochira.com.secureapp.GoogleMapsActivity;
 import app.ernestochira.com.secureapp.R;
 
 public class SplashActivity extends Activity {
 
-    final static int SPLASH_OUT_TIMEOUT = 3000;
+    final static int SPLASH_OUT_TIMEOUT = 2000;
     final static int SLEEP_INTERVAL = 100;
     final static String TAG = "SecureApp";
 
@@ -37,16 +43,16 @@ public class SplashActivity extends Activity {
                     e.printStackTrace();
                     Log.d(TAG, "Error on Splash Screen");
                 } finally {
-                    startActivity(new Intent(SplashActivity.this, MapsActivity.class));
+                    startActivity(new Intent(SplashActivity.this, GoogleMapsActivity.class));
                     finish();
                 }
             }
         };
         splashDelayer.start();
 
-        logoTextView= (TextView)findViewById(R.id.logoTextView);
-        String logoFontPath = "font/theTribalBox.ttf";
-        Typeface LTF = Typeface.createFromAsset(getAssets(),logoFontPath);
-        logoTextView.setTypeface(LTF);
+        logoTextView = (TextView)findViewById(R.id.logoTextView);
+        String logoFontPath = "font/tribalBox.ttf";
+        Typeface typeface = Typeface.createFromAsset(getAssets(),logoFontPath);
+        logoTextView.setTypeface(typeface);
     }
 }

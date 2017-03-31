@@ -2,17 +2,20 @@ package app.ernestochira.com.secureapp;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.view.KeyEvent;
 import android.view.View;
 
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,10 +26,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import app.ernestochira.com.secureapp.activities.IncidenceActivity;
+import app.ernestochira.com.secureapp.activities.IncidencesActivity;
+import app.ernestochira.com.secureapp.activities.NewsActivity;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    FloatingActionsMenu floatingActionsMenu;
+    com.getbase.floatingactionbutton.FloatingActionButton incidenceFloatingActionButton;
+    com.getbase.floatingactionbutton.FloatingActionButton noticesFloatingActionButton;
     private GoogleMap mMap;
     private Marker marker;
     double lat = 0.0;
@@ -35,51 +42,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_google_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);mapFragment.getMapAsync(this);
+        mapFragment.getMapAsync(this);
 
-// Boton de lista de incidencias
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        incidenceFloatingActionButton = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.incidenceFloatingActionButton);
+        incidenceFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //double result = CalculationByDistance(rns,);
-
-
-                startActivity(new Intent(view.getContext(), IncidenceActivity.class));
+                startActivity(new Intent(view.getContext(), IncidencesActivity.class));
             }
-        }
+        });
 
+        noticesFloatingActionButton = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.noticesFloatingActionButton);
+        noticesFloatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), NewsActivity.class));
+            }
+        });
 
-        );
-
-        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
-        fab2.setOnClickListener(new View.OnClickListener() {
-                                   @Override
-                                   public void onClick(View view) {
-                                       //double result = CalculationByDistance(rns,);
-
-
-                                       //startActivity(new Intent(view.getContext(), RegisterIncident.class));
-                                   }
-                               }
-
-
-        );
-
-
-
+        floatingActionsMenu = (FloatingActionsMenu) findViewById(R.id.menuFloatingActionMenu);
+        floatingActionsMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //
+            }
+        });
     }
-
-
-
-
-
-
-
 
 
     /**
@@ -95,9 +88,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         myUbication();
-
     }
-
     private void addMarker(double lat, double lng) {
         LatLng coordinates = new LatLng(lat, lng);
         CameraUpdate myUbication = CameraUpdateFactory.newLatLngZoom(coordinates, 16);
@@ -149,5 +140,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         updateUbication(location);
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 10000, 0, locationListener);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Salir")
+                    .setMessage("¿Está seguro de salir?")
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            GoogleMapsActivity.this.finish();
+                        }
+                    })
+                    .show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
