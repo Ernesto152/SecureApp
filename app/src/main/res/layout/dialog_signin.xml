@@ -56,7 +56,7 @@
         android:ems="10"
         android:hint="Nombre"
         android:inputType="textPersonName"
-        android:padding="15dp"
+        android:padding="16dp"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <EditText
