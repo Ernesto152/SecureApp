@@ -66,14 +66,6 @@ public class IncidencesActivity extends AppCompatActivity {
             }
         });
 
-        aceptar = (Button) findViewById(R.id.boton_aceptar);
-        aceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), LogIn.class));
-            }
-        });
-
         FacebookSdk.sdkInitialize(getApplicationContext());
     }
 

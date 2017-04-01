@@ -13,41 +13,43 @@ import app.ernestochira.com.secureapp.database.DBHelper;
 
 public class LogIn extends AppCompatActivity {
 
-    EditText et1,et2;
-    private Cursor fila;
+    EditText userEditText;
+    EditText passwordEditText;
+    private Cursor cursor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        et1= (EditText) findViewById(R.id.nombre_text);
-        et2= (EditText) findViewById(R.id.contrasena_text);
+        userEditText = (EditText) findViewById(R.id.userEditText);
+        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
     }
 
-    public void ingresar(View w){
-        DBHelper admin=new DBHelper(this,"secureapp",null,1);
-        SQLiteDatabase db=admin.getWritableDatabase();
-        String usuario=et1.getText().toString();
-        String contrasena=et2.getText().toString();
-        fila=db.rawQuery("select usuario,contrasena from usuarios where usuario='"+usuario+"' and contrasena='"+contrasena+"'",null);
+    public void signIn(View w){
+        DBHelper dbHelper=new DBHelper(this,"secureapp",null,1);
+        SQLiteDatabase db=dbHelper.getWritableDatabase();
+        String user= userEditText.getText().toString();
+        String password= passwordEditText.getText().toString();
+        cursor =db.rawQuery("select usuario,contrasena from usuarios where usuario='"+user+"' and contrasena='"+password+"'",null);
 
-        if (fila.moveToFirst()){
-            String usua=fila.getString(0);
-            String pass=fila.getString(1);
-            if (usuario.equals(usua)&&contrasena.equals(pass)){
+        if (cursor.moveToFirst()){
+            String usua= cursor.getString(0);
+            String pass= cursor.getString(1);
+            if (user.equals(usua)&&password.equals(pass)){
                 Intent ven=new Intent(this,IncidencesActivity.class);
                 startActivity(ven);
-                et1.setText("");
-                et2.setText("");
+                userEditText.setText("");
+                passwordEditText.setText("");
             }
         }
     }
-    public void registro(View v){
+    public void signUp(View v){
         Intent ven=new Intent(this,SignUp.class);
         startActivity(ven);
     }
 
-    public void salir(View v){
+    public void getOut(View v){
         finish();
     }
 }

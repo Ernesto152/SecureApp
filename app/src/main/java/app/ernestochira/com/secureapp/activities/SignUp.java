@@ -13,43 +13,40 @@ import app.ernestochira.com.secureapp.database.DBHelper;
 
 public class SignUp extends AppCompatActivity {
 
-      EditText et1,et2,et3;
-
+    EditText emailEditText;
+    EditText userEditText;
+    EditText passwordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        et1= (EditText) findViewById(R.id.emailRegisterEditText);
-        et2= (EditText) findViewById(R.id.nameRegisterEditText);
-        et3= (EditText) findViewById(R.id.passwordRegisterEditText);
+        emailEditText = (EditText) findViewById(R.id.emailRegisterEditText);
+        userEditText = (EditText) findViewById(R.id.nameRegisterEditText);
+        passwordEditText = (EditText) findViewById(R.id.passwordRegisterEditText);
 
     }
-    public void registrar(View view){
+    public void signUp(View view){
 
-        DBHelper admin=new DBHelper(this,"secureapp",null,1);
-        SQLiteDatabase db=admin.getWritableDatabase();
-        String correo=et1.getText().toString();
-        String usuario=et2.getText().toString();
-        String contraseña=et3.getText().toString();
+        DBHelper dbHelper=new DBHelper(this,"secureapp",null,1);
+        SQLiteDatabase db=dbHelper.getWritableDatabase();
+        String email= emailEditText.getText().toString();
+        String user= userEditText.getText().toString();
+        String password= passwordEditText.getText().toString();
 
         ContentValues values=new ContentValues();
-        values.put("correo",correo);
-        values.put("usuario",usuario);
-        values.put("contrasena",contraseña);
+        values.put("correo",email);
+        values.put("usuario",user);
+        values.put("contrasena",password);
 
         db.insert("usuarios",null,values);
         db.close();
 
         Intent ven=new Intent(this,LogIn.class);
         startActivity(ven);
-
     }
 
-    public void cancelar(View view){
+    public void cancel(View view){
         finish();
     }
-
-
-
 }
