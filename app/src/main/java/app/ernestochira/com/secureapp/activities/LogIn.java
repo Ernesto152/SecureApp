@@ -43,7 +43,7 @@ public class LogIn extends AppCompatActivity {
         }
     }
     public void registro(View v){
-        Intent ven=new Intent(this,SignUp.class);
+        Intent ven=new Intent(this,IncidencesActivity.class);
         startActivity(ven);
     }
 

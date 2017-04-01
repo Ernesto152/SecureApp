@@ -42,5 +42,7 @@ dependencies {
     compile 'com.github.fafaldo:fab-toolbar:1.2.0'
     compile 'com.github.clans:fab:1.6.2'
     compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'com.github.snowdream.android:smartimageview:0.0.2'
     testCompile 'junit:junit:4.12'
 }

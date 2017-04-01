@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import app.ernestochira.com.secureapp.activities.IncidencesActivity;
+import app.ernestochira.com.secureapp.activities.LogIn;
 import app.ernestochira.com.secureapp.activities.NewsActivity;
 
 public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -53,7 +54,7 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
         incidenceFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), IncidencesActivity.class));
+                startActivity(new Intent(view.getContext(), LogIn.class));
             }
         });
 
