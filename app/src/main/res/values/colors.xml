@@ -12,4 +12,5 @@
     <color name="colorBackgroundTag">#e44493d9</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorCards">#aad0ef</color>
+    <color name="colorBackground">#c3757575</color>
 </resources>

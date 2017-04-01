@@ -4,8 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activities.LogIn"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activities.SignUp"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activities.Menu"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -56,7 +64,7 @@
             android:name=".activities.IncidencesActivity"
             android:label="@string/title_activity_incidences"
             android:parentActivityName=".GoogleMapsActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.ernestochira.com.secureapp.GoogleMapsActivity" />

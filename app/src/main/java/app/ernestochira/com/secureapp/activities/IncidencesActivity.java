@@ -1,33 +1,23 @@
 package app.ernestochira.com.secureapp.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
-import com.facebook.login.widget.LoginButton;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import app.ernestochira.com.secureapp.R;
 
 public class IncidencesActivity extends AppCompatActivity {
     Spinner optionsSpinner;
-    private LoginButton loginButton;
-    private CallbackManager callbackManager;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_VIDEO_CAPTURE = 2;
     private static final int SELECT_FILE = 3;
@@ -61,7 +51,6 @@ public class IncidencesActivity extends AppCompatActivity {
                 openCamera();
             }
         });
-        /////////////////////////////////////////////////
         imageFloatingActionButton = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.imageFloatingActionButton);
         imageFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +58,6 @@ public class IncidencesActivity extends AppCompatActivity {
                 openGallery();
             }
         });
-        //////////////////////////////////////////////////
         videoFloatingActionButton = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.videoFloatingActionButton);
         videoFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,16 +66,14 @@ public class IncidencesActivity extends AppCompatActivity {
             }
         });
 
-
-        //////////////////////////////////////////////
         aceptar = (Button) findViewById(R.id.boton_aceptar);
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createLoginDialogo().show();
+                startActivity(new Intent(v.getContext(), LogIn.class));
             }
         });
-        //////////////////////////////////////////////
+
         FacebookSdk.sdkInitialize(getApplicationContext());
     }
 
@@ -125,48 +111,5 @@ public class IncidencesActivity extends AppCompatActivity {
             //Uri videoUri = data.getData();
             //videoVideoView.setVideoURI(videoUri);
         }
-    }
-
-
-
-
-
-
-    public AlertDialog createLoginDialogo() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(IncidencesActivity.this);
-
-        LayoutInflater inflater = IncidencesActivity.this.getLayoutInflater();
-
-        View v = inflater.inflate(R.layout.dialog_signin, null);
-
-        builder.setView(v);
-
-        Button signup = (Button) v.findViewById(R.id.crear_boton);
-        Button signin = (Button) v.findViewById(R.id.entrar_boton);
-
-        signup.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Crear Cuenta...
-                        dismiss();
-                    }
-                }
-        );
-        signin.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Loguear...
-                        dismiss();
-                    }
-                }
-
-        );
-        return builder.create();
-    }
-
-    private void dismiss() {
-        finish();
     }
 }
