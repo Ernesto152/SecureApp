@@ -99,7 +99,7 @@ public class GoogleMapsActivity extends FragmentActivity implements OnMapReadyCa
         marker = mMap.addMarker(new MarkerOptions()
                 .position(coordinates)
                 .title("Mi posicion actual")
-                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_place_red)));
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_place)));
         mMap.animateCamera(myUbication);
     }
 
