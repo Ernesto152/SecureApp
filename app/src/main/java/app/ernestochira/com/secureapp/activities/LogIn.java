@@ -13,7 +13,7 @@ import app.ernestochira.com.secureapp.database.DBHelper;
 
 public class LogIn extends AppCompatActivity {
 
-    EditText et1,et2,et3;
+    EditText et1,et2;
     private Cursor fila;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,6 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void salir(View v){
-   finish();
-        //System.exit(0);
+        finish();
     }
 }

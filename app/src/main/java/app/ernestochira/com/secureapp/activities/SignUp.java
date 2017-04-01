@@ -29,12 +29,12 @@ public class SignUp extends AppCompatActivity {
 
         DBHelper admin=new DBHelper(this,"secureapp",null,1);
         SQLiteDatabase db=admin.getWritableDatabase();
-        String codigo=et1.getText().toString();
+        String correo=et1.getText().toString();
         String usuario=et2.getText().toString();
         String contraseña=et3.getText().toString();
 
         ContentValues values=new ContentValues();
-        values.put("correo",codigo);
+        values.put("correo",correo);
         values.put("usuario",usuario);
         values.put("contrasena",contraseña);
 
@@ -48,7 +48,6 @@ public class SignUp extends AppCompatActivity {
 
     public void cancelar(View view){
         finish();
-
     }
 
 
